@@ -38,16 +38,24 @@ app.get("/now", (req, res, next) => {
     }
   );
 
-  app.get("/:word/echo", (req, res) => {
+app.get("/:word/echo", (req, res) => {
     console.log(req.params.word);
     res.json({echo: req.params.word});
-  });
+});
 
-  app.get("/name", (req, res) => {
+app.get("/name", (req, res) => {
     // console.log(req.query.first);
     // console.log(req.query.last);
     res.send({name: req.query.first + " " + req.query.last});
-  });
+    console.log(req.body);
+});
+
+app.post("/name", (req, res) => {
+    const tuloste= req.body.first + " " + req.body.last;
+    console.log(tuloste);
+    res.json({name: tuloste});
+});
+  
   
   
 
