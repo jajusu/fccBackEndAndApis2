@@ -39,6 +39,12 @@ app.get("/now", (req, res, next) => {
     console.log(req.params.word);
     res.json({echo: req.params.word});
   });
+
+  app.get("/name", (req, res) => {
+    // console.log(req.query.first);
+    // console.log(req.query.last);
+    res.send({name: req.query.first + " " + req.query.last});
+  });
   
   
 
