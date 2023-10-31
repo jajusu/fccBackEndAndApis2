@@ -5,6 +5,12 @@ let app = express();
 console.log("Hello World");
 console.log(process.env.MESSAGE_STYLE);
 
+app.use((req, res, next) =>{
+    let logString = req.method + " " + req.path + " / " + req.ip;
+    console.log(logString);
+    next();
+});
+
 app.use("/public", express.static(__dirname + "/public"))
 
 app.get("/", (req, res) => {
@@ -19,14 +25,6 @@ app.get("/json", (req, res) => {
         res.json({ "message": "Hello json" });
     }
 });
-
-app.use("/", (req, res, next) => {
-    //res.send("Hello Express");
-    let logString = req.method + " " + req.path + " / " + req.ip;
-    console.log(logString);
-    next();
-});
-
 
 
 
