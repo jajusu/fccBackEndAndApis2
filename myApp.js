@@ -20,6 +20,13 @@ app.get("/json", (req, res) => {
     }
 });
 
+app.use("/", (req, res, next) => {
+    //res.send("Hello Express");
+    let logString = req.method + " " + req.path + " / " + req.ip;
+    console.log(logString);
+    next();
+});
+
 
 
 
