@@ -6,7 +6,7 @@ console.log("Hello World");
 console.log(process.env.MESSAGE_STYLE);
 
 app.use((req, res, next) =>{
-    let logString = req.method + " " + req.path + " / " + req.ip;
+    let logString = req.method + " " + req.path + " - " + req.ip;
     console.log(logString);
     next();
 });
