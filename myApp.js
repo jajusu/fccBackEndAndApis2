@@ -34,6 +34,12 @@ app.get("/now", (req, res, next) => {
         res.send({time: req.time});
     }
   );
+
+  app.get("/:word/echo", (req, res) => {
+    console.log(req.params.word);
+    res.json({echo: req.params.word});
+  });
+  
   
 
 
